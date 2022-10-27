@@ -1,0 +1,16 @@
+#@ predicate require_sum (n: int ) = n>=0
+#@ predicate ensure_sum (n:int , res : int ) =  (n*(n+1))/2 == res 
+#@ predicate test_sum (n:int , res : int ) = require_sum (n) -> ensure_sum (n, res )
+
+ #@ assert test_sum (0 , 0)
+ #@ assert test_sum (1 , 1)
+ #@ assert test_sum (2 , 3)
+#@ assert test_sum (3 , 6)
+#@ assert test_sum (4 , 10)
+#@ assert test_sum (5 , 15)
+#@ assert test_sum (6 , 21)
+ # contre exemples
+ #@ assert not test_sum (7 , 26)
+ #@ assert not test_sum (8 , 21)
+ #@ assert not test_sum (9 , 13)
+ 
